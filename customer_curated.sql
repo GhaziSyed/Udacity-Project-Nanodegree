@@ -1,9 +1,13 @@
 CREATE EXTERNAL TABLE IF NOT EXISTS `albis`.`customer_curated` (
-  `user` string,
-  `timeStamp` timestamp,
-  `x` float,
-  `y` float,
-  `z` float
+  `serialnumber` string,
+  `sharewithpublicasofdate` bigint,
+  `birthday` string,
+  `registrationdate` string,
+  `customername` string,
+  `email` string,
+  `lastupdatedate` bigint,
+  `phone` string,
+  `sharewithfriendsasofdate` bigint
 )
 ROW FORMAT SERDE 'org.openx.data.jsonserde.JsonSerDe'
 WITH SERDEPROPERTIES (
@@ -13,5 +17,5 @@ WITH SERDEPROPERTIES (
   'mapping' = 'TRUE'
 )
 STORED AS INPUTFORMAT 'org.apache.hadoop.mapred.TextInputFormat' OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
-LOCATION 's3://albis-lake-house/customer/curated/'
+LOCATION 's3://albis-lake-house/customer/trusted/'
 TBLPROPERTIES ('classification' = 'json');
