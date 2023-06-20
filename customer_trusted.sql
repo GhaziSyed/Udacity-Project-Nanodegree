@@ -7,7 +7,8 @@ CREATE EXTERNAL TABLE IF NOT EXISTS `albis`.`customer_trusted` (
   `email` string,
   `lastupdatedate` bigint,
   `phone` string,
-  `sharewithfriendsasofdate` bigint
+  `sharewithfriendsasofdate` bigint,
+  `sharewithresearchasofdate` bigint
 )
 ROW FORMAT SERDE 'org.openx.data.jsonserde.JsonSerDe'
 WITH SERDEPROPERTIES (
